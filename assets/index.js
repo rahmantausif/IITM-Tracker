@@ -7351,8 +7351,8 @@ function getElementRef$1(element) {
   }
   return element.props.ref || element.ref;
 }
-function createCollection(name) {
-  const PROVIDER_NAME2 = name + "CollectionProvider";
+function createCollection(name2) {
+  const PROVIDER_NAME2 = name2 + "CollectionProvider";
   const [createCollectionContext, createCollectionScope2] = createContextScope(PROVIDER_NAME2);
   const [CollectionProviderImpl, useCollectionContext] = createCollectionContext(
     PROVIDER_NAME2,
@@ -7365,7 +7365,7 @@ function createCollection(name) {
     return /* @__PURE__ */ jsxRuntimeExports.jsx(CollectionProviderImpl, { scope, itemMap, collectionRef: ref, children });
   };
   CollectionProvider.displayName = PROVIDER_NAME2;
-  const COLLECTION_SLOT_NAME = name + "CollectionSlot";
+  const COLLECTION_SLOT_NAME = name2 + "CollectionSlot";
   const CollectionSlotImpl = /* @__PURE__ */ createSlot(COLLECTION_SLOT_NAME);
   const CollectionSlot = o.forwardRef(
     (props, forwardedRef) => {
@@ -7376,7 +7376,7 @@ function createCollection(name) {
     }
   );
   CollectionSlot.displayName = COLLECTION_SLOT_NAME;
-  const ITEM_SLOT_NAME = name + "CollectionItemSlot";
+  const ITEM_SLOT_NAME = name2 + "CollectionItemSlot";
   const ITEM_DATA_ATTR = "data-radix-collection-item";
   const CollectionItemSlotImpl = /* @__PURE__ */ createSlot(ITEM_SLOT_NAME);
   const CollectionItemSlot = o.forwardRef(
@@ -7394,7 +7394,7 @@ function createCollection(name) {
   );
   CollectionItemSlot.displayName = ITEM_SLOT_NAME;
   function useCollection2(scope) {
-    const context = useCollectionContext(name + "CollectionConsumer", scope);
+    const context = useCollectionContext(name2 + "CollectionConsumer", scope);
     const getItems = o.useCallback(() => {
       const collectionNode = context.collectionRef.current;
       if (!collectionNode) return [];
@@ -7661,10 +7661,10 @@ function dispatchUpdate() {
   const event = new CustomEvent(CONTEXT_UPDATE);
   document.dispatchEvent(event);
 }
-function handleAndDispatchCustomEvent$1(name, handler, detail, { discrete }) {
+function handleAndDispatchCustomEvent$1(name2, handler, detail, { discrete }) {
   const target = detail.originalEvent.target;
-  const event = new CustomEvent(name, { bubbles: false, cancelable: true, detail });
-  if (handler) target.addEventListener(name, handler, { once: true });
+  const event = new CustomEvent(name2, { bubbles: false, cancelable: true, detail });
+  if (handler) target.addEventListener(name2, handler, { once: true });
   if (discrete) {
     dispatchDiscreteCustomEvent(target, event);
   } else {
@@ -8457,10 +8457,10 @@ function getAnnounceTextContent(container) {
   });
   return textContent;
 }
-function handleAndDispatchCustomEvent(name, handler, detail, { discrete }) {
+function handleAndDispatchCustomEvent(name2, handler, detail, { discrete }) {
   const currentTarget = detail.originalEvent.currentTarget;
-  const event = new CustomEvent(name, { bubbles: true, cancelable: true, detail });
-  if (handler) currentTarget.addEventListener(name, handler, { once: true });
+  const event = new CustomEvent(name2, { bubbles: true, cancelable: true, detail });
+  if (handler) currentTarget.addEventListener(name2, handler, { once: true });
   if (discrete) {
     dispatchDiscreteCustomEvent(currentTarget, event);
   } else {
@@ -11935,7 +11935,7 @@ const computePosition$1 = async (reference, floating, config) => {
   let resetCount = 0;
   for (let i = 0; i < validMiddleware.length; i++) {
     const {
-      name,
+      name: name2,
       fn
     } = validMiddleware[i];
     const {
@@ -11961,8 +11961,8 @@ const computePosition$1 = async (reference, floating, config) => {
     y2 = nextY != null ? nextY : y2;
     middlewareData = {
       ...middlewareData,
-      [name]: {
-        ...middlewareData[name],
+      [name2]: {
+        ...middlewareData[name2],
         ...data
       }
     };
@@ -17156,6 +17156,126 @@ var DataRouterStateHook;
   DataRouterStateHook2["UseFetchers"] = "useFetchers";
   DataRouterStateHook2["UseScrollRestoration"] = "useScrollRestoration";
 })(DataRouterStateHook || (DataRouterStateHook = {}));
+var define_process_env_default = {};
+var name = "@vercel/analytics";
+var version = "1.6.1";
+var initQueue = () => {
+  if (window.va) return;
+  window.va = function a(...params) {
+    (window.vaq = window.vaq || []).push(params);
+  };
+};
+function isBrowser() {
+  return typeof window !== "undefined";
+}
+function detectEnvironment() {
+  try {
+    const env = "production";
+    if (env === "development" || env === "test") ;
+  } catch (e) {
+  }
+  return "production";
+}
+function setMode(mode = "auto") {
+  if (mode === "auto") {
+    window.vam = detectEnvironment();
+    return;
+  }
+  window.vam = mode;
+}
+function getMode() {
+  const mode = isBrowser() ? window.vam : detectEnvironment();
+  return mode || "production";
+}
+function isDevelopment() {
+  return getMode() === "development";
+}
+function getScriptSrc(props) {
+  if (props.scriptSrc) {
+    return props.scriptSrc;
+  }
+  if (isDevelopment()) {
+    return "https://va.vercel-scripts.com/v1/script.debug.js";
+  }
+  if (props.basePath) {
+    return `${props.basePath}/insights/script.js`;
+  }
+  return "/_vercel/insights/script.js";
+}
+function inject(props = {
+  debug: true
+}) {
+  var _a2;
+  if (!isBrowser()) return;
+  setMode(props.mode);
+  initQueue();
+  if (props.beforeSend) {
+    (_a2 = window.va) == null ? void 0 : _a2.call(window, "beforeSend", props.beforeSend);
+  }
+  const src = getScriptSrc(props);
+  if (document.head.querySelector(`script[src*="${src}"]`)) return;
+  const script = document.createElement("script");
+  script.src = src;
+  script.defer = true;
+  script.dataset.sdkn = name + (props.framework ? `/${props.framework}` : "");
+  script.dataset.sdkv = version;
+  if (props.disableAutoTrack) {
+    script.dataset.disableAutoTrack = "1";
+  }
+  if (props.endpoint) {
+    script.dataset.endpoint = props.endpoint;
+  } else if (props.basePath) {
+    script.dataset.endpoint = `${props.basePath}/insights`;
+  }
+  if (props.dsn) {
+    script.dataset.dsn = props.dsn;
+  }
+  script.onerror = () => {
+    const errorMessage = isDevelopment() ? "Please check if any ad blockers are enabled and try again." : "Be sure to enable Web Analytics for your project and deploy again. See https://vercel.com/docs/analytics/quickstart for more information.";
+    console.log(
+      `[Vercel Web Analytics] Failed to load script from ${src}. ${errorMessage}`
+    );
+  };
+  if (isDevelopment() && props.debug === false) {
+    script.dataset.debug = "false";
+  }
+  document.head.appendChild(script);
+}
+function pageview({
+  route,
+  path
+}) {
+  var _a2;
+  (_a2 = window.va) == null ? void 0 : _a2.call(window, "pageview", { route, path });
+}
+function getBasePath() {
+  if (typeof process === "undefined" || typeof define_process_env_default === "undefined") {
+    return void 0;
+  }
+  return define_process_env_default.REACT_APP_VERCEL_OBSERVABILITY_BASEPATH;
+}
+function Analytics(props) {
+  reactExports.useEffect(() => {
+    var _a2;
+    if (props.beforeSend) {
+      (_a2 = window.va) == null ? void 0 : _a2.call(window, "beforeSend", props.beforeSend);
+    }
+  }, [props.beforeSend]);
+  reactExports.useEffect(() => {
+    inject({
+      framework: props.framework || "react",
+      basePath: props.basePath ?? getBasePath(),
+      ...props.route !== void 0 && { disableAutoTrack: true },
+      ...props
+    });
+  }, []);
+  reactExports.useEffect(() => {
+    if (props.route && props.path) {
+      pageview({ route: props.route, path: props.path });
+    }
+  }, [props.route, props.path]);
+  return null;
+}
 function toDate(argument) {
   const argStr = Object.prototype.toString.call(argument);
   if (argument instanceof Date || typeof argument === "object" && argStr === "[object Date]") {
@@ -19208,6 +19328,7 @@ const queryClient = new QueryClient();
 const App = () => /* @__PURE__ */ jsxRuntimeExports.jsx(QueryClientProvider, { client: queryClient, children: /* @__PURE__ */ jsxRuntimeExports.jsxs(TooltipProvider, { children: [
   /* @__PURE__ */ jsxRuntimeExports.jsx(Toaster$1, {}),
   /* @__PURE__ */ jsxRuntimeExports.jsx(Toaster, {}),
+  /* @__PURE__ */ jsxRuntimeExports.jsx(Analytics, {}),
   /* @__PURE__ */ jsxRuntimeExports.jsx(BrowserRouter, { children: /* @__PURE__ */ jsxRuntimeExports.jsxs(Routes, { children: [
     /* @__PURE__ */ jsxRuntimeExports.jsx(Route, { path: "/", element: /* @__PURE__ */ jsxRuntimeExports.jsx(Dashboard, {}) }),
     /* @__PURE__ */ jsxRuntimeExports.jsx(Route, { path: "*", element: /* @__PURE__ */ jsxRuntimeExports.jsx(NotFound, {}) })
