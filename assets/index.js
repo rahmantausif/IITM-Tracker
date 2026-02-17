@@ -7875,7 +7875,7 @@ function isFunction(value) {
   return typeof value === "function";
 }
 var VISUALLY_HIDDEN_STYLES = Object.freeze({
-  // See: https://github.com/twbs/bootstrap/blob/main/scss/mixins/_visually-hidden.scss
+  // See: https://.com/twbs/bootstrap/blob/main/scss/mixins/_visually-hidden.scss
   position: "absolute",
   border: 0,
   width: 1,
@@ -19301,7 +19301,6 @@ function Dashboard() {
         className: "flex items-center gap-2.5 px-5 py-3 rounded-2xl bg-white/5 hover:bg-white/10 border border-white/10 hover:border-primary/30 backdrop-blur-xl transition-all duration-300 group shadow-2xl",
         children: [
           /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx(Github, { className: "h-4.5 w-4.5 text-foreground/70 group-hover:text-primary transition-colors duration-300" }),
             /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute -top-1 -right-1 h-2 w-2 bg-primary rounded-full animate-pulse shadow-[0_0_8px_rgba(var(--primary),0.6)]" })
           ] }),
           /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col items-start leading-none", children: [
