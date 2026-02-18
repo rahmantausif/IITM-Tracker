@@ -8757,6 +8757,16 @@ const FlaskConical = createLucideIcon("FlaskConical", [
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
+const Github = createLucideIcon("Github", [
+  [
+    "path",
+    {
+      d: "M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4",
+      key: "tonef"
+    }
+  ],
+  ["path", { d: "M9 18c-4.51 2-5-2-7-2", key: "9comsn" }]
+]);
 
 /**
  * @license github lucide-react v0.462.0 - ISC
@@ -19282,25 +19292,7 @@ function Dashboard() {
         style: { animationDelay: `${index2 * 150}ms` }
       },
       course
-    )) }) }),
-    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "fixed bottom-6 left-6 z-[60] animate-in fade-in slide-in-from-left-8 duration-1000 delay-500 fill-mode-both", children: /* @__PURE__ */ jsxRuntimeExports.jsxs(
-      "a",
-      {
-        href: "https://github.com/rahmantausif/IITM-Tracker",
-        target: "_blank",
-        rel: "noopener noreferrer",
-        className: "flex items-center gap-2.5 px-5 py-3 rounded-2xl bg-white/5 hover:bg-white/10 border border-white/10 hover:border-primary/30 backdrop-blur-xl transition-all duration-300 group shadow-2xl",
-        children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute -top-1 -right-1 h-2 w-2 bg-primary rounded-full animate-pulse shadow-[0_0_8px_rgba(var(--primary),0.6)]" })
-          ] }),
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col items-start leading-none", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-[10px] font-black uppercase tracking-[0.15em] text-muted-foreground group-hover:text-foreground transition-colors", children: "Star on" }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-[13px] font-bold text-foreground", children: "GitHub" })
-          ] })
-        ]
-      }
-    ) })
+    )) }) })
   ] });
 }
 const NotFound = () => {
