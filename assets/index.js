@@ -19102,11 +19102,13 @@ function ProjectBox({ course, deadlines: deadlines2, style }) {
   };
   const documentationLinks = {
     "MAD I": [
+      { title: "MAD I Resources", url: "https://thejeshgn.com/projects/modern-application-development-1/" },
       { title: "MAD I Document", url: "https://docs.google.com/document/u/7/d/e/2PACX-1vTE24mLeA0-xG9hIi74MziA4miXqkBbJvpWLDTdc26hDHDU5VXEwqOMBM4iGxU4-3FB5R4HQJvabb9v/pub" },
       { title: "MAD I Statement", url: "https://docs.google.com/document/u/7/d/e/2PACX-1vQd_uj2D-ONcKs0Wi9_lTkR5xLOHS1zlmfhaRy8jHtlVVgyNbq3AVspa9BZmerTK0WAZ8qffqU76Fe7/pub" },
       { title: "Milestones MAD-I", url: "https://docs.google.com/document/u/7/d/e/2PACX-1vTWfwFMzcK1IhBRtyPTo1n76ObS13z0guZAKRj2mt65T6_2VoLaL1Xr9R0-IfQkfY3F27FZgMkO2mK0/pub" }
     ],
     "MAD II": [
+      { title: "MAD II Resources", url: "https://thejeshgn.com/projects/modern-application-development-2/" },
       { title: "MAD II Document", url: "https://docs.google.com/document/u/7/d/e/2PACX-1vS_z4eUvsNEAYcYDCdvyuUbgZhzn1rUjHap6tvx61kpr5RDj1rkkYzjb9gc2b6l755PAwwmQv-QKXyU/pub" },
       { title: "MAD II Statement", url: "https://docs.google.com/document/u/7/d/e/2PACX-1vTcayCKq8OPAVeTZHXNwCXxvJfiQRcMxiiqXcNmrDkbiSwu9it0SCOkXwTytPy2Hx-p6IAkr6XSF4fB/pub" },
       { title: "Milestones MAD-II", url: "https://docs.google.com/document/u/7/d/e/2PACX-1vTac3l7WHhdzZAFMR6HmBKqIzqEs8dF5v43CFSlHM2yuDD07_e1GEFTm4dLgcOUn1VY51W4V9YzWxEf/pub" }
